@@ -1,4 +1,5 @@
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -18,7 +19,8 @@ public class SoundexTest {
 		Soundex soundex = new Soundex();
 		
 		String encoded = soundex.encode("A");
+		
+		assertThat(encoded, equalTo("A"));
 	}
 
 }
-
