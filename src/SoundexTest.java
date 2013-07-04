@@ -9,16 +9,12 @@ public class SoundexTest {
 
 	@Test
 	public void retainsSoleLetterOfOneLetterWord() {
-		String encoded = soundex.encode("A");
-		
-		assertThat(encoded, equalTo("A000"));
+		assertThat(soundex.encode("A"), equalTo("A000"));
 	}
 
 	@Test
 	public void padsWithZerosToEnsureThreeDigits() {
-		String encoded = soundex.encode("I");
-		
-		assertThat(encoded, equalTo("I000"));
+		assertThat(soundex.encode("I"), equalTo("I000"));
 	}
 
 }
