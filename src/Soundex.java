@@ -1,6 +1,8 @@
 
 class Soundex {
 
+	private static final int MAX_CODE_LENGTH = 4;
+
 	public String encode(String word) {
 		return zeroPad(head(word) + encodedDigits(word));
 	}
@@ -16,7 +18,7 @@ class Soundex {
 	}
 
 	private String zeroPad(String word) {
-		int zerosNeeded = 4 - word.length();
+		int zerosNeeded = MAX_CODE_LENGTH - word.length();
 		return word + new String(new char[zerosNeeded]).replace('\u0000', '0');
 	}
 
