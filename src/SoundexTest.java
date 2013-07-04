@@ -6,7 +6,7 @@ import org.junit.Test;
 class Soundex {
 
 	public String encode(String word) {
-		return word;
+		return word + "000";
 	}
 
 }
