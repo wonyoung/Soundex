@@ -1,3 +1,7 @@
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 
 class Soundex {
 
@@ -14,9 +18,13 @@ class Soundex {
 	}
 
 	private String encodedDigit(char letter) {
-		if (letter == 'c')
-			return "2";
-		return "1";
+		@SuppressWarnings("serial")
+		final Map<Character, String> encodings = Collections.unmodifiableMap(new HashMap<Character, String> () {{
+			put('b', "1");
+			put('c', "2");
+			put('d', "3");
+		}});
+		return encodings.get(letter);
 	}
 
 	private String head(String word) {
