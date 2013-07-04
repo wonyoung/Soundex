@@ -6,8 +6,7 @@ import org.junit.Test;
 class Soundex {
 
 	public String encode(String word) {
-		// TODO Auto-generated method stub
-		return "";
+		return "A";
 	}
 
 }
