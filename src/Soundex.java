@@ -9,8 +9,12 @@ class Soundex {
 
 	private String encodedDigits(String word) {
 		if (word.length() > 1)
-			return "1";
+			return encodedDigit();
 		return "";
+	}
+
+	private String encodedDigit() {
+		return "1";
 	}
 
 	private String head(String word) {
