@@ -19,7 +19,7 @@ public class SoundexTest {
 		
 		String encoded = soundex.encode("A");
 		
-		assertThat(encoded, equalTo("A"));
+		assertThat(encoded, equalTo("A000"));
 	}
 
 	@Test
