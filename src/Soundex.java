@@ -2,11 +2,17 @@
 class Soundex {
 
 	public String encode(String word) {
-		String encoded = word.substring(0, 1);
-		if (word.length() > 1) {
-			encoded += "1";
-		}
-		return zeroPad(encoded);
+		return zeroPad(head(word) + encodedDigits(word));
+	}
+
+	private String encodedDigits(String word) {
+		if (word.length() > 1)
+			return "1";
+		return "";
+	}
+
+	private String head(String word) {
+		return word.substring(0, 1);
 	}
 
 	private String zeroPad(String word) {
