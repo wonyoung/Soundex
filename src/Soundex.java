@@ -10,7 +10,8 @@ class Soundex {
 	}
 
 	private String zeroPad(String word) {
-		return word + "000";
+		int zerosNeeded = 4 - word.length();
+		return word + new String(new char[zerosNeeded]).replace('\u0000', '0');
 	}
 
 }
