@@ -9,11 +9,13 @@ class Soundex {
 
 	private String encodedDigits(String word) {
 		if (word.length() > 1)
-			return encodedDigit();
+			return encodedDigit(word.charAt(1));
 		return "";
 	}
 
-	private String encodedDigit() {
+	private String encodedDigit(char letter) {
+		if (letter == 'c')
+			return "2";
 		return "1";
 	}
 

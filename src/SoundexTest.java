@@ -4,14 +4,14 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 public class SoundexTest {
-	
+
 	private Soundex soundex = new Soundex();
 
 	@Test
 	public void retainsSoleLetterOfOneLetterWord() {
 		assertThat(soundex.encode("A"), equalTo("A000"));
 	}
-	
+
 	@Test
 	public void padsWithZerosToEnsureThreeDigits() {
 		assertThat(soundex.encode("I"), equalTo("I000"));
@@ -20,6 +20,7 @@ public class SoundexTest {
 	@Test
 	public void replacesConsonantsWithAppropriateDigits() {
 		assertThat(soundex.encode("Ab"), equalTo("A100"));
+		assertThat(soundex.encode("Ac"), equalTo("A200"));
 	}
 
 }
