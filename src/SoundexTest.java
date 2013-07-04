@@ -10,7 +10,7 @@ public class SoundexTest {
 
 	@Test
 	public void retainsSoleLetterOfOneLetterWord() {
-		Soundex soundex;
+		Soundex soundex = new Soundex();
 	}
 
 }
