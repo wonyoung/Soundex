@@ -12,7 +12,7 @@ class Soundex {
 }
 
 public class SoundexTest {
-
+	
 	@Test
 	public void retainsSoleLetterOfOneLetterWord() {
 		Soundex soundex = new Soundex();
@@ -20,6 +20,15 @@ public class SoundexTest {
 		String encoded = soundex.encode("A");
 		
 		assertThat(encoded, equalTo("A"));
+	}
+
+	@Test
+	public void padsWithZerosToEnsureThreeDigits() {
+		Soundex soundex = new Soundex();
+		
+		String encoded = soundex.encode("I");
+		
+		assertThat(encoded, equalTo("I000"));
 	}
 
 }
