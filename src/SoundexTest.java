@@ -11,6 +11,8 @@ public class SoundexTest {
 	@Test
 	public void retainsSoleLetterOfOneLetterWord() {
 		Soundex soundex = new Soundex();
+		
+		String encoded = soundex.encode("A");
 	}
 
 }
