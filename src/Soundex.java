@@ -9,7 +9,7 @@ class Soundex {
 	private static final String NotADigit = "*";
 
 	public String encode(String word) {
-		return zeroPad(upperFront(head(word)) + encodedDigits(tail(word)));
+		return zeroPad(upperFront(head(word)) + tail(encodedDigits(word)));
 	}
 
 	private String upperFront(final String string) {
@@ -21,8 +21,8 @@ class Soundex {
 	}
 
 	private String encodedDigits(String word) {
-		String encoding = new String();
-		for (char letter : word.toCharArray()) {
+		String encoding = encodedDigit(word.charAt(0));
+		for (char letter : tail(word).toCharArray()) {
 			if (isComplete(encoding))
 				break;
 			String digit = encodedDigit(letter);
@@ -40,7 +40,7 @@ class Soundex {
 	}
 
 	private boolean isComplete(final String encoding) {
-		return encoding.length() == MAX_CODE_LENGTH - 1;
+		return encoding.length() == MAX_CODE_LENGTH;
 	}
 
 	public String encodedDigit(char letter) {

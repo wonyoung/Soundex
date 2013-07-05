@@ -62,4 +62,9 @@ public class SoundexTest {
 		assertThat(soundex.encode("BCDL"), equalTo(soundex.encode("bcdl")));
 	}
 	
+	@Test
+	public void combinesDuplicateCodesWhen2ndLetterDuplicates1st() {
+		assertThat(soundex.encode("Bbcd"), equalTo("B230"));
+	}
+	
 }
