@@ -20,8 +20,19 @@ class Soundex {
 		return word.substring(1);
 	}
 
-	private String encodedDigits(String word) {
-		String encoding = encodedDigit(word.charAt(0));
+	private String encodedDigits(final String word) {
+		String encoding = new String();
+		encoding = encodeHead(encoding, word);
+		encoding = encodeTail(encoding, word);
+		return encoding;
+	}
+	
+	private String encodeHead(String encoding, final String word) {
+		encoding += encodedDigit(word.charAt(0));
+		return encoding;
+	}
+
+	private String encodeTail(String encoding, final String word) {
 		for (char letter : tail(word).toCharArray()) {
 			if (isComplete(encoding))
 				break;
