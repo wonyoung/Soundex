@@ -9,15 +9,7 @@ class Soundex {
 	private static final String NotADigit = "*";
 
 	public String encode(String word) {
-		return zeroPad(upperFront(head(word)) + tail(encodedDigits(word)));
-	}
-
-	private String upperFront(final String string) {
-		return string.substring(0,1).toUpperCase() + string.substring(1);
-	}
-
-	private String tail(String word) {
-		return word.substring(1);
+		return StringUtil.zeroPad(StringUtil.upperFront(StringUtil.head(word)) + StringUtil.tail(encodedDigits(word)), MAX_CODE_LENGTH);
 	}
 
 	private String encodedDigits(final String word) {
@@ -45,14 +37,10 @@ class Soundex {
 
 	private String encodeLetter(String encoding, final char letter, final char lastLetter) {
 		String digit = encodedDigit(letter);
-		if (!digit.equals(NotADigit) && (!digit.equals(lastDigit(encoding)) || isVowel(lastLetter))) {
+		if (!digit.equals(NotADigit) && (!digit.equals(lastDigit(encoding)) || CharUtil.isVowel(lastLetter))) {
 			encoding += digit;
 		}
 		return encoding;
-	}
-
-	private boolean isVowel(char lastLetter) {
-		return "aeiouy".contains(""+lower(lastLetter));
 	}
 
 	private String lastDigit(String encoding) {
@@ -76,21 +64,8 @@ class Soundex {
 			put('m', "5"); put('n', "5");
 			put('r', "6");
 		}});
-		char lowerLetter = lower(letter);
+		char lowerLetter = CharUtil.lower(letter);
 		return encodings.containsKey(lowerLetter) ? encodings.get(lowerLetter):NotADigit;
-	}
-
-	private char lower(final char c) {
-		return Character.toLowerCase(c);
-	}
-
-	private String head(String word) {
-		return word.substring(0, 1);
-	}
-
-	private String zeroPad(String word) {
-		int zerosNeeded = MAX_CODE_LENGTH - word.length();
-		return word + new String(new char[zerosNeeded]).replace('\u0000', '0');
 	}
 
 }
