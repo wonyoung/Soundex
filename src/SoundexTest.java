@@ -40,7 +40,7 @@ public class SoundexTest {
 	
 	@Test
 	public void ignoresVowelLikeLetters() {
-		assertThat(soundex.encode("Baeiouhycdl"), equalTo("B234"));
+		assertThat(soundex.encode("BaAeEiIoOuUhHyYcdl"), equalTo("B234"));
 	}
 	
 	@Test
