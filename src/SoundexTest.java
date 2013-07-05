@@ -31,10 +31,15 @@ public class SoundexTest {
 	public void replacesMultipleConsonantsWithDigits() {
 		assertThat(soundex.encode("Acdl"), equalTo("A234"));
 	}
-
+	
 	@Test
 	public void limitsLengthToFourCharacters() {
 		assertThat(soundex.encode("Dcdlb").length(), equalTo(4));
+	}
+
+	@Test
+	public void ignoresVowelLikeLetters() {
+		assertThat(soundex.encode("Baeiouhycdl"), equalTo("B234"));
 	}
 	
 }
