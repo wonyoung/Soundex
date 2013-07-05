@@ -22,4 +22,9 @@ public class SoundexTest {
 		assertThat(soundex.encode("Ax"), equalTo("A200"));
 	}
 
+	@Test
+	public void ignoresNonAlphabetics() {
+		assertThat(soundex.encode("A#"), equalTo("A000"));
+	}
+	
 }

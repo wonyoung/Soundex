@@ -28,7 +28,7 @@ class Soundex {
 			put('m', "5"); put('n', "5");
 			put('r', "6");
 		}});
-		return encodings.get(letter);
+		return encodings.containsKey(letter) ? encodings.get(letter):"";
 	}
 
 	private String head(String word) {
