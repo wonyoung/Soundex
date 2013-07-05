@@ -44,6 +44,10 @@ public class SoundexTest {
 
 	@Test
 	public void combinesDuplicateEncodings() {
+		assertThat(soundex.encodedDigit('b'), equalTo(soundex.encodedDigit('f')));
+		assertThat(soundex.encodedDigit('c'), equalTo(soundex.encodedDigit('g')));
+		assertThat(soundex.encodedDigit('d'), equalTo(soundex.encodedDigit('t')));
+
 		assertThat(soundex.encode("Abfcgdt"), equalTo("A123"));
 	}
 	

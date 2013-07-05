@@ -29,7 +29,7 @@ class Soundex {
 		return encoding.length() == MAX_CODE_LENGTH - 1;
 	}
 
-	private String encodedDigit(char letter) {
+	public String encodedDigit(char letter) {
 		@SuppressWarnings("serial")
 		final Map<Character, String> encodings = Collections.unmodifiableMap(new HashMap<Character, String> () {{
 			put('b', "1"); put('f', "1"); put('p', "1"); put('v', "1");
