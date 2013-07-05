@@ -33,20 +33,26 @@ class Soundex {
 	}
 
 	private String encodeTail(String encoding, final String word) {
-		for (char letter : tail(word).toCharArray()) {
+		for (int i = 1; i < word.length(); i++) {
 			if (!isComplete(encoding)) {
-				encoding = encodeLetter(encoding, letter);
+				char letter = word.charAt(i);
+				char lastLetter = word.charAt(i-1);
+				encoding = encodeLetter(encoding, letter, lastLetter);
 			}
 		}
 		return encoding;
 	}
 
-	private String encodeLetter(String encoding, final char letter) {
+	private String encodeLetter(String encoding, final char letter, final char lastLetter) {
 		String digit = encodedDigit(letter);
-		if (!digit.equals(NotADigit) && !digit.equals(lastDigit(encoding))) {
+		if (!digit.equals(NotADigit) && (!digit.equals(lastDigit(encoding)) || isVowel(lastLetter))) {
 			encoding += digit;
 		}
 		return encoding;
+	}
+
+	private boolean isVowel(char lastLetter) {
+		return "aeiouy".contains(""+lower(lastLetter));
 	}
 
 	private String lastDigit(String encoding) {

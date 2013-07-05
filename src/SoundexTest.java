@@ -67,4 +67,9 @@ public class SoundexTest {
 		assertThat(soundex.encode("Bbcd"), equalTo("B230"));
 	}
 	
+	@Test
+	public void doesNotCombineDuplicateEncodingsSeparatedByVowels() {
+		assertThat(soundex.encode("Jbob"), equalTo("J110"));
+	}
+	
 }
