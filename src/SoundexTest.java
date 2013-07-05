@@ -36,10 +36,15 @@ public class SoundexTest {
 	public void limitsLengthToFourCharacters() {
 		assertThat(soundex.encode("Dcdlb").length(), equalTo(4));
 	}
-
+	
 	@Test
 	public void ignoresVowelLikeLetters() {
 		assertThat(soundex.encode("Baeiouhycdl"), equalTo("B234"));
+	}
+
+	@Test
+	public void combinesDuplicateEncodings() {
+		assertThat(soundex.encode("Abfcgdt"), equalTo("A123"));
 	}
 	
 }
