@@ -21,10 +21,15 @@ public class SoundexTest {
 	public void replacesConsonantsWithAppropriateDigits() {
 		assertThat(soundex.encode("Ax"), equalTo("A200"));
 	}
-
+	
 	@Test
 	public void ignoresNonAlphabetics() {
 		assertThat(soundex.encode("A#"), equalTo("A000"));
+	}
+
+	@Test
+	public void replacesMultipleConsonantsWithDigits() {
+		assertThat(soundex.encode("Acdl"), equalTo("A234"));
 	}
 	
 }
