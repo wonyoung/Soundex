@@ -26,10 +26,15 @@ public class SoundexTest {
 	public void ignoresNonAlphabetics() {
 		assertThat(soundex.encode("A#"), equalTo("A000"));
 	}
-
+	
 	@Test
 	public void replacesMultipleConsonantsWithDigits() {
 		assertThat(soundex.encode("Acdl"), equalTo("A234"));
+	}
+
+	@Test
+	public void limitsLengthToFourCharacters() {
+		assertThat(soundex.encode("Dcdlb").length(), equalTo(4));
 	}
 	
 }
