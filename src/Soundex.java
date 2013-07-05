@@ -20,9 +20,17 @@ class Soundex {
 		for (char letter : word.toCharArray()) {
 			if (isComplete(encoding))
 				break;
-			encoding += encodedDigit(letter);
+			if (!encodedDigit(letter).equals(lastDigit(encoding))) {
+				encoding += encodedDigit(letter);
+			}
 		}
 		return encoding;
+	}
+
+	private String lastDigit(String encoding) {
+		if (encoding.isEmpty())
+			return "";
+		return encoding.substring(encoding.length()-1, encoding.length());
 	}
 
 	private boolean isComplete(final String encoding) {
