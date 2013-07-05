@@ -54,7 +54,11 @@ class Soundex {
 			put('m', "5"); put('n', "5");
 			put('r', "6");
 		}});
-		return encodings.containsKey(letter) ? encodings.get(letter):NotADigit;
+		return encodings.containsKey(lower(letter)) ? encodings.get(lower(letter)):NotADigit;
+	}
+
+	private char lower(final char c) {
+		return Character.toLowerCase(c);
 	}
 
 	private String head(String word) {

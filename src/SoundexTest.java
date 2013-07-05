@@ -52,10 +52,14 @@ public class SoundexTest {
 		assertThat(soundex.encode("Abfcgdt"), equalTo("A123"));
 	}
 	
-
 	@Test
 	public void uppercasesFirstLetter() {
 		assertThat(soundex.encode("abcd"), startsWith("A"));
+	}
+	
+	@Test
+	public void ignoresCaseWhenEncodingConsonants() {
+		assertThat(soundex.encode("BCDL"), equalTo(soundex.encode("bcdl")));
 	}
 	
 }
