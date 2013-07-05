@@ -54,7 +54,8 @@ class Soundex {
 			put('m', "5"); put('n', "5");
 			put('r', "6");
 		}});
-		return encodings.containsKey(lower(letter)) ? encodings.get(lower(letter)):NotADigit;
+		char lowerLetter = lower(letter);
+		return encodings.containsKey(lowerLetter) ? encodings.get(lowerLetter):NotADigit;
 	}
 
 	private char lower(final char c) {
