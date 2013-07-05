@@ -1,4 +1,5 @@
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.startsWith;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
@@ -41,14 +42,20 @@ public class SoundexTest {
 	public void ignoresVowelLikeLetters() {
 		assertThat(soundex.encode("Baeiouhycdl"), equalTo("B234"));
 	}
-
+	
 	@Test
 	public void combinesDuplicateEncodings() {
 		assertThat(soundex.encodedDigit('b'), equalTo(soundex.encodedDigit('f')));
 		assertThat(soundex.encodedDigit('c'), equalTo(soundex.encodedDigit('g')));
 		assertThat(soundex.encodedDigit('d'), equalTo(soundex.encodedDigit('t')));
-
+		
 		assertThat(soundex.encode("Abfcgdt"), equalTo("A123"));
+	}
+	
+
+	@Test
+	public void uppercasesFirstLetter() {
+		assertThat(soundex.encode("abcd"), startsWith("A"));
 	}
 	
 }

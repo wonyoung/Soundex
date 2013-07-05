@@ -8,7 +8,11 @@ class Soundex {
 	private static final int MAX_CODE_LENGTH = 4;
 
 	public String encode(String word) {
-		return zeroPad(head(word) + encodedDigits(tail(word)));
+		return zeroPad(upperFront(head(word)) + encodedDigits(tail(word)));
+	}
+
+	private String upperFront(final String string) {
+		return string.substring(0,1).toUpperCase() + string.substring(1);
 	}
 
 	private String tail(String word) {
