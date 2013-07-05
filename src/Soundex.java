@@ -34,12 +34,17 @@ class Soundex {
 
 	private String encodeTail(String encoding, final String word) {
 		for (char letter : tail(word).toCharArray()) {
-			if (isComplete(encoding))
-				break;
-			String digit = encodedDigit(letter);
-			if (!digit.equals(NotADigit) && !digit.equals(lastDigit(encoding))) {
-				encoding += digit;
+			if (!isComplete(encoding)) {
+				encoding = encodeLetter(encoding, letter);
 			}
+		}
+		return encoding;
+	}
+
+	private String encodeLetter(String encoding, final char letter) {
+		String digit = encodedDigit(letter);
+		if (!digit.equals(NotADigit) && !digit.equals(lastDigit(encoding))) {
+			encoding += digit;
 		}
 		return encoding;
 	}
