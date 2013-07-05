@@ -20,9 +20,13 @@ class Soundex {
 	private String encodedDigit(char letter) {
 		@SuppressWarnings("serial")
 		final Map<Character, String> encodings = Collections.unmodifiableMap(new HashMap<Character, String> () {{
-			put('b', "1");
-			put('c', "2");
-			put('d', "3");
+			put('b', "1"); put('f', "1"); put('p', "1"); put('v', "1");
+			put('c', "2"); put('g', "2"); put('j', "2"); put('k', "2"); put('q', "2");
+						   put('s', "2"); put('x', "2"); put('z', "2");
+			put('d', "3"); put('t', "3");
+			put('l', "4");
+			put('m', "5"); put('n', "5");
+			put('r', "6");
 		}});
 		return encodings.get(letter);
 	}

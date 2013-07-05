@@ -19,9 +19,7 @@ public class SoundexTest {
 
 	@Test
 	public void replacesConsonantsWithAppropriateDigits() {
-		assertThat(soundex.encode("Ab"), equalTo("A100"));
-		assertThat(soundex.encode("Ac"), equalTo("A200"));
-		assertThat(soundex.encode("Ad"), equalTo("A300"));
+		assertThat(soundex.encode("Ax"), equalTo("A200"));
 	}
 
 }
