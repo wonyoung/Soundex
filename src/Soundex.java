@@ -18,7 +18,11 @@ class Soundex {
 	private String encodedDigits(String word) {
 		if (word.isEmpty())
 			return "";
-		return encodedDigit(word.charAt(0));
+		String encoding = new String();
+		for (char letter : word.toCharArray()) {
+			encoding += encodedDigit(letter);
+		}
+		return encoding;
 	}
 
 	private String encodedDigit(char letter) {
